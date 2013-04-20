@@ -4,20 +4,20 @@
 	var _startX = 0; //posição inicial do mouse
 	var _startY = 0;
 	var _offsetX = 0; //estado corrente do elemento offset
-	var _offsetY = 0; 
+	var _offsetY = 0;
 	var _dragElement; //é necessário ser passado a partir de OnMouseDown para OnMouseMove
 	var _oldZIndex; // precisamos, temporariamente, aumentar o índice z durante arrasto
-	
+	var n, e = 0;
 	window.onload = function() {
 
 		var square = document.getElementById('square');
 		square.style.display = "block";
 		square.style.background = "#00A093";
-		document.onmousedown = OnMouseDown;
+		document.onmousedown = MouseDown;
 		document.onmouseup = OnMouseUp;
 	}
 
-	function OnMouseDown(e) {
+	function MouseDown(e) {
 		// O IE não passa o objeto evento
 		if(e == null){
 			e = window.event;
@@ -82,7 +82,7 @@
 
 	function OnMouseMove(e) {
 		if(e == null) {
-			var e = window.event;
+			 e = window.event;
 		}
 
 		//Este é o atual "código do drag and drop"
@@ -91,7 +91,7 @@
 	}
 
 	function ExtractNumber(value) {
-		var n = parseInt(value);
+		 n = parseInt(value);
 
 		return n==null || isNaN(n) ? 0:n;
 	}
